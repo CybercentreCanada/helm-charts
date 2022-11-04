@@ -163,13 +163,13 @@ spec:
         - name: {{ .Chart.Name }}-coordinator
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if .Values.env }}
+          {{- if or .Values.env .Values.tls.keystorePasswordSecret }}
           env:
-            {{- if or .Values.tls.keystorePasswordSecret }}
+            {{- with .Values.tls.keystorePasswordSecret }}
             - name: TRINO_KEYSTORE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.tls.keystorePasswordSecret }}
+                  name: {{ . }}
                   key: keystore-password
             {{- end }}
           {{-  tpl (toYaml .Values.env) . | nindent 12 }}
