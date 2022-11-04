@@ -107,7 +107,8 @@ spec:
             runAsUser: {{ .runAsUser }}
             runAsGroup: {{ .runAsGroup }}
           {{- end }}
-          command: [ /bin/bash ]
+          command:
+            - /bin/bash
           args:
           - -ec
           - |-
