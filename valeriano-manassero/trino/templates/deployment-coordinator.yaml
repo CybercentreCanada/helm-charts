@@ -26,6 +26,7 @@ spec:
       securityContext:
         runAsUser: {{ .runAsUser }}
         runAsGroup: {{ .runAsGroup }}
+        fsGroup: {{ .fsGroup }}
       {{- end }}
       volumes:
         - name: config-volume
@@ -52,7 +53,7 @@ spec:
         - name: certs
           secret:
             secretName: {{ include "trino.tlsSecretName" . }}
-            defaultMode: 0256
+            defaultMode: 0400
         - name: certs-shared
           emptyDir: {}
         {{- end }}
