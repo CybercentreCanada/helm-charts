@@ -417,7 +417,7 @@ serviceAccount:
 
 initKeystore:
   image:
-    repository: adoptopenjdk/openjdk11
+    repository: adoptopenjdk/openjdk17
     tag: latest
     pullPolicy: IfNotPresent
 
