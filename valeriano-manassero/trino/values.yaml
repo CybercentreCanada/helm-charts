@@ -417,7 +417,7 @@ serviceAccount:
 
 initKeystore:
   image:
-    repository: adoptopenjdk/openjdk17
+    repository: eclipse-temurin/17-jdk
     tag: latest
     pullPolicy: IfNotPresent
 
