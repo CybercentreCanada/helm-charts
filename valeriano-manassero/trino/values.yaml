@@ -417,8 +417,8 @@ serviceAccount:
 
 initKeystore:
   image:
-    repository: eclipse-temurin/17-jdk
-    tag: latest
+    repository: bitnami/java
+    tag: 17
     pullPolicy: IfNotPresent
 
 tls:
